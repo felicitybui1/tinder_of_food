@@ -428,7 +428,7 @@ This code reads a CSV file named "restaurants.csv" into a Spark DataFrame called
 
 The spark.read.format("csv") statement specifies the format of the input file. The .options() method sets several options for reading the CSV file: header='true' specifies that the first row of the file contains the column names, inferschema='true' tells Spark to automatically infer the data types of each column, and treatEmptyValuesAsNulls='true' tells Spark to treat empty values as nulls.
 
-The .load() method specifies the path of the CSV file to be read. In this case, the file is located at "/Users/cristianleo/Desktop/Data_Science/Datasets/restaurants.csv".
+The .load() method specifies the path of the CSV file to be read. In this case, the file is located at "/Users/Felicitybui/Desktop/Data_Science/Datasets/restaurants.csv".
 
 Once the file is read into the DataFrame, the columns attribute is used to print the names of all columns in the DataFrame.
 
@@ -1403,7 +1403,7 @@ if __name__ == '__main__':
     127.0.0.1 - - [30/Apr/2023 10:16:54] "GET /static/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 -
 
 
-    {'name': 'Cristian Leo', 'business_name': 'Trabucco Sama S.r.l.', 'email': 'cristianleo120@gmail.com', 'phone': '3287141309', 'locations': [10011, 10003, 10010, 10016, 10031, 10032, 10033, 10034, 10040, 11101, 11102, 11103, 11104, 11105, 11106, 11354, 11355, 11356, 11357, 11358, 11360, 11361, 11362, 11363, 11364, 11365, 11366, 11367, 11412, 11423, 11432, 11433, 11434, 11435, 11436, 11691, 11692, 11693, 11694, 11697], 'specialty': ['cantonese', 'dimsum', 'foodstands', 'hotpot', 'shanghainese', 'streetvendors', 'szechuan', 'taiwanese', 'chinese', 'indpakm', 'indian', 'izakaya', 'japacurry', 'japanese', 'ramen', 'sushi'], 'pricing_tier': '$$', 'plan_selection': '3'}
+    {'name': 'Felicity Bui', 'business_name': 'Trabucco Sama S.r.l.', 'email': 'felicitybui@gmail.com', 'phone': '3287141309', 'locations': [10011, 10003, 10010, 10016, 10031, 10032, 10033, 10034, 10040, 11101, 11102, 11103, 11104, 11105, 11106, 11354, 11355, 11356, 11357, 11358, 11360, 11361, 11362, 11363, 11364, 11365, 11366, 11367, 11412, 11423, 11432, 11433, 11434, 11435, 11436, 11691, 11692, 11693, 11694, 11697], 'specialty': ['cantonese', 'dimsum', 'foodstands', 'hotpot', 'shanghainese', 'streetvendors', 'szechuan', 'taiwanese', 'chinese', 'indpakm', 'indian', 'izakaya', 'japacurry', 'japanese', 'ramen', 'sushi'], 'pricing_tier': '$$', 'plan_selection': '3'}
 
 
     127.0.0.1 - - [30/Apr/2023 10:17:04] "POST /matching HTTP/1.1" 302 -
