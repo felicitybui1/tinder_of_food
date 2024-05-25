@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+
+    <!-- Site Metas -->
+    <title>Deliop</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon" />
+<link rel="apple-touch-icon" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min3.css') }}">
+<!-- Site CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+<!-- color -->
+<link id="changeable-colors" rel="stylesheet" href="{{ url_for('static', filename='css/colors/new_orange.css') }}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" integrity="sha512-Ba/8Fbgp7R5jKqbEZy5RMfduJ+0qI8Q15WxgZ7btuZdCvdd7YLMz0d0XyDCQb1lDRKj8/h+LrLJxwodrOF6Ylw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Modernizer -->
+<script src="{{ url_for('static', filename='js/modernizer.js') }}"></script> 
+
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head>
+
+<body>
+    <div id="loader">
+        <div id="status"></div>
+    </div>
+    
+    <div id="site-header">
+        <header id="header" class="header-block-top">
+            <div class="container">
+                <div class="row">
+                    <div class="main-menu">
+                        <!-- navbar -->
+                        <nav class="navbar navbar-default" id="mainNav">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <div class="logo">
+                                    <a class="navbar-brand js-scroll-trigger logo-header" href="http://localhost:5001/">
+                                        <img src="{{ url_for('static', filename='images/Deliopt_logo2.png') }}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="active"><a href="http://localhost:5001/">Home</a></li>
+                                    <li class="active"><a href="http://localhost:5001/matching">Match</a></li> 
+                                    <li class="active"><a href="http://localhost:5001/map">Map</a></li>
+                                    <li class="active"><a href="http://localhost:5001/slides">Slides</a></li>
+                                </ul>
+                            </div>
+                            <!-- end nav-collapse -->
+                        </nav>
+                        <!-- end navbar -->
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container-fluid -->
+        </header>
+        <!-- end header -->
+    </div>
+	<!-- end site-header -->
+	
+    <style>
+        table {
+          border-collapse: collapse;
+          margin: auto;
+          font-family: Arial, sans-serif;
+          font-size: 14px;
+          text-align: left;
+        }
+        td, th {
+          padding: 8px;
+          border: 1px solid #ddd;
+          vertical-align: middle;
+        }
+        label {
+          font-weight: bold;
+        }
+        select {
+          width: 200px;
+          padding: 5px 10px;
+          margin-right: 10px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          background-color: #fff;
+          color: #333;
+          font-size: 14px;
+        }
+        .select2-container--default .select2-selection--multiple .select2-selection__choice {
+          background-color: #007bff;
+          color: #fff;
+          border-color: #007bff;
+          padding: 2px 6px;
+        }
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+          color: #fff;
+        }
+      </style>
+
+    <div id="product_demo" style="padding-top: 200px;">
+        <div class="container", style="width: 90%;">
+            <h2 class="block-title text-center">Find A Restaurant</h2>
+            <form method="POST" action="/map">
+                <table>
+                    <tr>
+                      <td>
+                        <label for="city-dropdown">City:</label>
+                      </td>
+                      <td>
+                        <select id="city-dropdown" name="city" class="selectpicker">
+                          <option value="nyc">New York City</option>
+                          <option value="la">Los Angeles</option>
+                          <option value="chi">Chicago</option>
+                        </select>
+                      </td>
+                      <td>
+                        <label for="cuisine-dropdown">Cuisine:</label>
+                      </td>
+                      <td>
+                          <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+                          <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>   
+                          <script>
+                              $(document).ready(function() {
+                                $('#cuisine-dropdown').select2();
+                              });
+                          </script>
+                          <select id="cuisine-dropdown" name="cuisine" multiple class="selectpicker" data-live-search="true">
+                              <option value="[african, ethiopian, southafrican]">African</option>
+                              <option value="[burgers, comfortfood, newmexican, southern]">American (New)</option>
+                              <option value="[cajun]">Cajun/Creole</option>
+                              <option value="[caribbean, puertorican, venezuelan]">Caribbean</option>
+                              <option value="[cantonese, dimsum, hotpot, shanghainese, szechuan, taiwanese, chinese]">Chinese</option>
+                              <option value="[ethiopian]">Ethiopian</option>
+                              <option value="[brasseries, french, fondue]">French</option>
+                              <option value="[indpakm, indian]">Indian</option>
+                              <option value="[italian, mediterranean, pastashops, pizza, sicilian, tuscan]">Italian</option>
+                              <option value="[izakaya, japacurry, japanese, ramen, sushi]">Japanese</option>
+                              <option value="[korean]">Korean</option>
+                              <option value="[colombian, latin, peruvian]">Latin American</option>
+                              <option value="[lebanese, mediterranean]">Mediterranean</option>
+                              <option value="[malaysian]">Malaysian</option>
+                              <option value="[empanadas, mexican, salvadoran, tacos, tex-mex, cuban]">Mexican</option>
+                              <option value="[falafel, middleeastern]">Middle Eastern</option>
+                              <option value="[pakistani]">Pakistani</option>
+                              <option value="[peruvian]">Peruvian</option>
+                              <option value="[easterneuropean, russian]">Russian</option>
+                              <option value="[spanish]">Spanish</option>
+                              <option value="[thai]">Thai</option>
+                              <option value="[turkish]">Turkish</option>
+                              <option value="[vietnamese]">Vietnamese</option>
+                              <option value="[bubbletea, coffee, juicebar, tea, beer_and_wine, wine_bars, beerbar, sportsbars]">Beverage</option>
+                              <option value="[seafoodmarkets, publicmarkets]">Market</option>
+                          </select>
+                      </td>
+                      <td>
+                        <label for="no-review-dropdown">Number of Reviews:</label>
+                      </td>
+                      <td>
+                        <select id="no-review-dropdown" name="reviews" multiple class="selectpicker">
+                          <option value="1-10">1-10</option>
+                          <option value="10-100">10-100</option>
+                          <option value="100-500">100-500</option>
+                          <option value=">500">>500</option>
+                        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label for="rating-dropdown">Rating:</label>
+                      </td>
+                      <td>
+                        <select id="rating-dropdown" name="rating" multiple class="selectpicker">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="4.5">4.5</option>
+                          <option value="5">5</option>
+                        </select>
+                      </td>
+                      <td>
+                        <label for="price-dropdown">Price:</label>
+                      </td>
+                      <td>
+                        <select id="price-dropdown" name="Price" multiple class="selectpicker">
+                          <option value="1">$</option>
+                          <option value="2">$$</option>
+                          <option value="3">$$$</option>
+                          <option value="4">>$$$$</option>
+                        </select>
+                      </td>
+                      <td>
+                        <label for="location-dropdown">Location:</label>
+                      </td>
+                      <td>
+                        <select id="location-dropdown" name="Location" multiple class="selectpicker">
+                          <option value="[10001, 10018, 10019, 10022, 10036]">Midtown Manhattan</option>
+                          <option value="[10018, 10036]">Times Square</option>
+                          <option value="[10023, 10024, 10025]">Central Park</option>
+                          <option value="[10023, 10024, 10025, 10069]">Upper West Side</option>
+                          <option value="[10021, 10028, 10044, 10065, 10075, 10128]">Upper East Side</option>
+                          <option value="[10026, 10027, 10030, 10031, 10032, 10037, 10039]">Harlem</option>
+                          <option value="[10011]">The High Line</option>
+                          <option value="[10016, 10017, 10022]">Murray Hill</option>
+                          <option value="[10010, 10011]">Flatiron District</option>
+                          <option value="[10003, 10010, 10016]">Gramercy Park</option>
+                          <option value="[10044]">Roosevelt Island</option>
+                          <option value="[10031, 10032, 10033, 10034, 10040]">Washington Heights and Inwood</option>
+                          <option value="[11201, 11205, 11206, 11211, 11215, 11217, 11231]">Brooklyn</option>
+                          <option value="[11101, 11102, 11103, 11104, 11105, 11106, 11354, 11355, 11356, 11357, 11358, 11360, 11361, 11362, 11363, 11364, 11365, 11366, 11367, 11412, 11423, 11432, 11433, 11434, 11435, 11436, 11691, 11692, 11693, 11694, 11697]">Queens</option>
+                        </select>
+                      </td>
+                    </tr>
+                  
+                  
+                    <div class="form-box" style="margin: auto; padding: 20px; width: 50%;">
+                        <input type="text" name="search" id="search" placeholder="Search restaurant" class="new_orange-btn">
+                    </div>
+                
+            </table>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="reserve-book-btn text-center">
+                        <button id="post-map" class="hvr-underline-from-center">Search</button>
+                    </div>
+                </div>
+                <!-- <button id="post-map" type="submit">Apply Filters</button> -->
+            </form>
+            <!-- <div class="row">
+                <div class="col-md-12">
+                    <button id="apply-btn">Apply</button>
+                </div>
+            </div> -->
+
+            <script>
+                // function reloadAndScroll() {
+                //     location.reload();
+                //     document.getElementById("product_demo").scrollIntoView();
+                // }
+                    
+                const applyBtn = document.getElementById("post-map");
+                applyBtn.addEventListener("click", () => {
+                    const city = document.getElementById("city-dropdown").value;
+                    const cuisine = Array.from(document.getElementById("cuisine-dropdown").selectedOptions).map(option => option.value);
+                    const reviews = Array.from(document.getElementById("no-review-dropdown").selectedOptions).map(option => option.value);
+                    const rating = Array.from(document.getElementById("rating-dropdown").selectedOptions).map(option => option.value);
+                    const price = Array.from(document.getElementById("price-dropdown").selectedOptions).map(option => option.value);
+                    const location = Array.from(document.getElementById("location-dropdown").selectedOptions).map(option => option.value);
+                    const search = document.getElementById("search").value;
+
+                    const selections = { city, category, reviews, rating, price, location, search };
+
+                    localStorage.setItem("selections", JSON.stringify(selections));
+                });
+
+                // Retrieve the selections on page load
+                const savedSelections = JSON.parse(localStorage.getItem("selections"));
+                if (savedSelections) {
+                    document.getElementById("city-dropdown").value = savedSelections.city;
+                    savedSelections.cuisine.forEach(value => document.querySelector(`#cuisine-dropdown option[value='${value}']`).selected = true);
+                    savedSelections.reviews.forEach(value => document.querySelector(`#no-review-dropdown option[value='${value}']`).selected = true);
+                    savedSelections.rating.forEach(value => document.querySelector(`#rating-dropdown option[value='${value}']`).selected = true);
+                    savedSelections.price.forEach(value => document.querySelector(`#price-dropdown option[value='${value}']`).selected = true);
+                    savedSelections.location.forEach(value => document.querySelector(`#location-dropdown option[value='${value}']`).selected = true);
+                    document.getElementById("search").value = savedSelections.search;
+                }
+            </script>
+
+            
+                <!-- Your filter inputs go here -->
+                
+
+                        <div id="map" style="padding-top: 150px;">{{ nyc_map | safe }}</div>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js" integrity="sha512-wMReZRMgIFjK4kUf0iUy4s9y4G4lTJUvT61PZ0KbZQw1EpkC7vGB8WnPiOM54Xlnz1iHyfjvM8DSbZDxNwzrGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                        <style>
+                            #map {
+                                width: 100%;
+                            }
+                        </style>
+
+        </div>
+    </div>
+     
+    
+
+    <div id="footer" class="footer-main">
+        <div class="footer-news pad-top-100 pad-bottom-70 parallax">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                            <h2 class="ft-title color-white text-center"> Newsletter </h2>
+                            <p> Subscribe our newsletter to receive latest news and exclusive offers</p>
+                        </div>
+                        <form>
+                            <input type="email" placeholder="Enter your e-mail address">
+                            <a href="#" class="new_orange-btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
+                        </form>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end footer-news -->
+        <div class="footer-box pad-top-70">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-in-main">
+                        <div class="footer-logo">
+                            <div class="text-center">
+                                <img src="{{ url_for('static', filename='images/Deliopt_logo2.png') }}" alt="" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-box-a">
+                                <h3>About Us</h3>
+                                <p>Deliopt is your tinder of food. </p>
+                                <p>It's match made in heaven. </p>
+                                <ul class="socials-box footer-socials pull-left">
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa  fa-facebook"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-twitter"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-google-plus"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-pinterest"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-linkedin"></i></div>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <!-- end footer-box-a -->
+                        </div>
+                        <!-- end col -->
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-box-c">
+                                <h3>Contact Us</h3>
+                                <p>
+                                    <i class="fa fa-map-signs" aria-hidden="true"></i>
+                                    <span>Columbia University in the City of New York</span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                                    <span>
+									+1 (857) 260-0802
+								</span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <span><a href="#">support@deliopt.com</a></span>
+                                </p>
+                            </div>
+                            <!-- end footer-box-c -->
+                        </div>
+                        <!-- end col -->
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-box-d">
+                                <h3>Opening Hours</h3>
+
+                                <ul>
+                                    <li>
+                                        <p>Monday - Friday </p>
+                                        <span> 9:00 AM - 5:00 PM</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end footer-box-d -->
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <!-- end footer-in-main -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+            <div id="copyright" class="copyright-main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <h6 class="copy-title"> Copyright &copy; Deliopt is powered by <a href="#" target="_blank"></a> </h6>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- end container -->
+            </div>
+            <!-- end copyright-main -->
+        </div>
+        <!-- end footer-box -->
+    </div>
+    <!-- end footer-main -->
+
+    <a href="#" class="scrollup" style="display: none;">Scroll</a>
+
+    <section id="color-panel" class="close-color-panel">
+        <!-- Colors -->
+        <div class="segment">
+            <h4 class="gray2 normal no-padding">Color Scheme</h4>
+            <a title="orange" class="switcher new_orange-bg"></a>
+            <a title="new_green" class="switcher new_green-bg"></a>
+            <a title="new_red" class="switcher new_red-bg"></a>
+            <a title="beige" class="switcher beige-bg"></a>
+        </div>
+    </section>
+
+    <!-- ALL JS FILES -->
+    <script src="{{ url_for('static', filename='js/all.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+
+</body>
+
+</html>

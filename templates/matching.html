@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+
+    <!-- Site Metas -->
+    <title>Deliop</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min3.css') }}">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    <!-- color -->
+    <link id="changeable-colors" rel="stylesheet" href="{{ url_for('static', filename='css/colors/new_orange.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" integrity="sha512-Ba/8Fbgp7R5jKqbEZy5RMfduJ+0qI8Q15WxgZ7btuZdCvdd7YLMz0d0XyDCQb1lDRKj8/h+LrLJxwodrOF6Ylw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Modernizer -->
+    <script src="{{ url_for('static', filename='js/modernizer.js') }}"></script> 
+    <!-- import jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- import select2 plugin -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head>
+
+<body>
+    <!-- <div id="loader">
+        <div id="status"></div>
+    </div> -->
+    <div id="site-header">
+        <header id="header" class="header-block-top">
+            <div class="container">
+                <div class="row">
+                    <div class="main-menu">
+                        <!-- navbar -->
+                        <nav class="navbar navbar-default" id="mainNav">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <div class="logo">
+                                    <a class="navbar-brand js-scroll-trigger logo-header" href="http://localhost:5001/">
+                                        <img src="{{ url_for('static', filename='images/Deliopt_logo2.png') }}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="active"><a href="http://localhost:5001/">Home</a></li>
+                                    <li class="active"><a href="http://localhost:5001/matching">Match</a></li>
+                                    <li class="active"><a href="http://localhost:5001/output">See Matches</a></li>
+                                    <li class="active"><a href="http://localhost:5001/map">Map</a></li>
+                                    <li class="active"><a href="http://localhost:5001/slides" target="_blank">Slides</a></li>    
+                                </ul>
+                            </div>
+                            <!-- end nav-collapse -->
+                        </nav>
+                        <!-- end navbar -->
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container-fluid -->
+        </header>
+        <!-- end header -->
+    </div>
+	<!-- end site-header -->
+
+    <div id="signup" class="reservations-main pad-top-100 pad-bottom-100" style="padding-top: 200px;">
+        <div class="container">
+            <div class="row">
+                <div class="form-reservations-box">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                            <h2 class="block-title text-center"> Sign Up Form </h2>
+                        </div>
+                        <p style="color:black"> Sign up today, and get your business back on track within 24 hours!</p>
+
+                        <form method="POST" action="/matching">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-box">
+                                    <input type="text" name="first_name" id="first_name" placeholder="Your name" required="required" data-error="Firstname is required.">
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-box">
+                                    <input type="text" name="business" id="business" placeholder="Your business name" required="required" data-error="Your business name is required.">
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-box">
+                                    <input type="email" name="email" id="email" placeholder="Your email address" required="required" data-error="E-mail id is required.">
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-box">
+                                    <input type="text" name="phone" id="phone" placeholder="Your phone number">
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-box">
+                                  <select id="multiple-locations" name="locations" multiple class="selectpicker" data-live-search="true" required="required" data-error="Your location is required.">
+                                    <option selected disabled>Your business area</option>
+                                    <option value="[10001, 10018, 10019, 10022, 10036]">Midtown Manhattan</option>
+                                    <option value="[10018, 10036]">Times Square</option>
+                                    <option value="[10023, 10024, 10025]">Central Park</option>
+                                    <option value="[10023, 10024, 10025, 10069]">Upper West Side</option>
+                                    <option value="[10021, 10028, 10044, 10065, 10075, 10128]">Upper East Side</option>
+                                    <option value="[10026, 10027, 10030, 10031, 10032, 10037, 10039]">Harlem</option>
+                                    <option value="[10011]">The High Line</option>
+                                    <option value="[10016, 10017, 10022]">Murray Hill</option>
+                                    <option value="[10010, 10011]">Flatiron District</option>
+                                    <option value="[10003, 10010, 10016]">Gramercy Park</option>
+                                    <option value="[10044]">Roosevelt Island</option>
+                                    <option value="[10031, 10032, 10033, 10034, 10040]">Washington Heights and Inwood</option>
+                                    <option value="[11201, 11205, 11206, 11211, 11215, 11217, 11231]">Brooklyn</option>
+                                    <option value="[11101, 11102, 11103, 11104, 11105, 11106, 11354, 11355, 11356, 11357, 11358, 11360, 11361, 11362, 11363, 11364, 11365, 11366, 11367, 11412, 11423, 11432, 11433, 11434, 11435, 11436, 11691, 11692, 11693, 11694, 11697]">Queens</option>
+                                  </select>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-box">
+                                    
+                                    <script>
+                                        $(document).ready(function() {
+                                        $('#speciality').select2();
+                                        });
+                                    </script>
+                                    <select id="speciality" name="speciality" placeholder="Choose your speciality" multiple class="selectpicker" data-live-search="true" required="required" data-error="Your business specialty is required.">
+                                        <option selected disabled>Choose you categories</option>
+                                        <option value="[african, ethiopian, southafrican]">African</option>
+                                        <option value="[burgers, comfortfood, newmexican, southern, soulfood]">American (New)</option>
+                                        <option value="[cajun]">Cajun/Creole</option>
+                                        <option value="[caribbean, puertorican, venezuelan]">Caribbean</option>
+                                        <option value="[cantonese, dimsum, foodstands, hotpot, shanghainese, streetvendors, szechuan, taiwanese, chinese]">Chinese</option>
+                                        <option value="[ethiopian]">Ethiopian</option>
+                                        <option value="[brasseries, french]">French</option>
+                                        <option value="[indpakm, indian]">Indian</option>
+                                        <option value="[fondue, gastropubs, italian, mediterranean, pastashops, pizza, sicilian, steak, tuscan]">Italian</option>
+                                        <option value="[izakaya, japacurry, japanese, ramen, sushi]">Japanese</option>
+                                        <option value="[korean]">Korean</option>
+                                        <option value="[colombian, latin, peruvian]">Latin American</option>
+                                        <option value="[lebanese, mediterranean]">Mediterranean</option>
+                                        <option value="[malaysian]">Malaysian</option>
+                                        <option value="[empanadas, mexican, salvadoran, tacos, tex-mex, cuban]">Mexican</option>
+                                        <option value="[falafel, middleeastern]">Middle Eastern</option>
+                                        <option value="[pakistani]">Pakistani</option>
+                                        <option value="[peruvian]">Peruvian</option>
+                                        <option value="[easterneuropean, russian]">Russian</option>
+                                        <option value="[spanish]">Spanish</option>
+                                        <option value="[thai]">Thai</option>
+                                        <option value="[turkish]">Turkish</option>
+                                        <option value="[vietnamese]">Vietnamese</option>
+                                        <option value="[bubbletea, coffee, juicebar, tea, beer_and_wine, wine_bars, beerbar, sportsbars]">Beverage</option>
+                                        <option value="[seafoodmarkets, publicmarkets]">Market</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-box">
+                                    <select name="pricing_tier" id="pricing_tier" class="selectpicker">
+                                        <option selected disabled>Your business pricing tier</option>
+                                        <option value="$">$</option>
+                                        <option value="$$">$$</option>
+                                        <option value="$$$">$$$</option>
+                                        <option value="$$$$">>$$$$</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-box">
+                                    <select name="plan_selection" id="plan_selection" class="selectpicker">
+                                        <option selected disabled>Selected subsciption plan</option>
+                                        <option value="1">Basic</option>
+                                        <option value="2">Pro</option>
+                                        <option value="3">Premium</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-box">
+                                    <input type="text" name="message" id="message" placeholder="Your message" style="width: 100%; height: 100px;" >
+                                </div>
+                            </div>
+                            <!-- end col -->
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="reserve-book-btn text-center">
+                                        <button class="hvr-underline-from-center" id="post-match">SUBMIT</button>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        </form>
+
+                        <script>
+                                            
+                            // function reloadAndScroll() {
+                            //     location.reload();
+                            //     document.getElementById("post-match").scrollIntoView();
+                            // }
+
+                            const applymtch = document.getElementById("post-match");
+
+                            applymtch.addEventListener("click", () => {
+                                const name = document.getElementById("first_name").value;
+                                const business = document.getElementById("business").value;
+                                const email = document.getElementById("email").value;
+                                const phone = document.getElementById("phone").value;
+                                const locations = Array.from(document.getElementById("multiple-locations").selectedOptions).map(option => option.value);
+                                const speciality = Array.from(document.getElementById("speciality").selectedOptions).map(option => option.value);
+                                const pricing_tier = document.getElementById("pricing_tier").value;
+                                const plan_selection = document.getElementById("plan_selection").value;
+                                const message = document.getElementById("message").value;
+
+                                const matches = { name, business, email, phone, locations, speciality, plan_selection, pricing_tier, message };
+
+                                localStorage.setItem("matches", JSON.stringify(matches));
+                            });
+
+                            // Retrieve the selections on page load
+                            const matches = JSON.parse(localStorage.getItem("matches"));
+                            if (matches) {
+                                document.getElementById("name").value = matches.name;
+                                document.getElementById("business").value = matches.business;
+                                document.getElementById("email").value = matches.email;
+                                document.getElementById("phone").value = matches.phone;
+                                matches.category.forEach(value => document.querySelector(`#multiple-locations option[value='${value}']`).selected = true);
+                                matches.reviews.forEach(value => document.querySelector(`#speciality option[value='${value}']`).selected = true);
+                                document.getElementById("pricing_tier").value = matches.pricing_tier;
+                                document.getElementById("plan_selection").value = matches.plan_selection;
+                                document.getElementById("message").value = matches.message;
+                            }
+
+
+
+                            
+                            // const form = document.getElementById('contact-form');
+                            // const output = document.getElementById('output');
+
+                            // form.addEventListener('submit', (event) => {
+                            // event.preventDefault();
+
+                            // // Get the form data
+                            // const formData = new FormData(form);
+
+                            
+                        </script>
+                        <!-- end form -->
+
+                        
+                          
+                       
+
+                        
+                        
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end reservations-box -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    
+    
+
+      
+    
+
+    <div id="footer" class="footer-main">
+        <div class="footer-news pad-top-100 pad-bottom-70 parallax">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                            <h2 class="ft-title color-white text-center"> Newsletter </h2>
+                            <p> Subscribe our newsletter to receive latest news and exclusive offers</p>
+                        </div>
+                        <form>
+                            <input type="email" placeholder="Enter your e-mail address">
+                            <a href="#" class="new_orange-btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
+                        </form>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end footer-news -->
+        <div class="footer-box pad-top-70">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-in-main">
+                        <div class="footer-logo">
+                            <div class="text-center">
+                                <img src="{{ url_for('static', filename='images/Deliopt_logo2.png') }}" alt="" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-box-a">
+                                <h3>About Us</h3>
+                                <p>Deliopt is your tinder of food. </p>
+                                <p>It's match made in heaven. </p>
+                                <ul class="socials-box footer-socials pull-left">
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa  fa-facebook"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-twitter"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-google-plus"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-pinterest"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-linkedin"></i></div>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <!-- end footer-box-a -->
+                        </div>
+                        <!-- end col -->
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-box-c">
+                                <h3>Contact Us</h3>
+                                <p>
+                                    <i class="fa fa-map-signs" aria-hidden="true"></i>
+                                    <span>Columbia University in the City of New York</span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                                    <span>
+									+1 (857) 260-0802
+								</span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <span><a href="#">support@deliopt.com</a></span>
+                                </p>
+                            </div>
+                            <!-- end footer-box-c -->
+                        </div>
+                        <!-- end col -->
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-box-d">
+                                <h3>Opening Hours</h3>
+
+                                <ul>
+                                    <li>
+                                        <p>Monday - Friday </p>
+                                        <span> 9:00 AM - 5:00 PM</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end footer-box-d -->
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <!-- end footer-in-main -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+            <div id="copyright" class="copyright-main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <h6 class="copy-title"> Copyright &copy; Deliopt is powered by <a href="#" target="_blank"></a> </h6>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- end container -->
+            </div>
+            <!-- end copyright-main -->
+        </div>
+        <!-- end footer-box -->
+    </div>
+    <!-- end footer-main -->
+
+    <a href="#" class="scrollup" style="display: none;">Scroll</a>
+
+    <section id="color-panel" class="close-color-panel">
+        <!-- Colors -->
+        <div class="segment">
+            <h4 class="gray2 normal no-padding">Color Scheme</h4>
+            <a title="orange" class="switcher new_orange-bg"></a>
+            <a title="new_green" class="switcher new_green-bg"></a>
+            <a title="new_red" class="switcher new_red-bg"></a>
+            <a title="beige" class="switcher beige-bg"></a>
+        </div>
+    </section>
+
+    <!-- ALL JS FILES -->
+    <script src="{{ url_for('static', filename='js/all.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+
+</body>
+
+</html>

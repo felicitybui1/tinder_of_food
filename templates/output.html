@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+
+    <!-- Site Metas -->
+    <title>Deliop</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="http://localhost:5001/static/images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://localhost:5001/static/images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://localhost:5001/static/css/bootstrap.min3.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="http://localhost:5001/static/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="http://localhost:5001/static/css/responsive.css">
+    <!-- color -->
+    <link id="changeable-colors" rel="stylesheet" href="http://localhost:5001/static/css/colors/new_orange.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" integrity="sha512-Ba/8Fbgp7R5jKqbEZy5RMfduJ+0qI8Q15WxgZ7btuZdCvdd7YLMz0d0XyDCQb1lDRKj8/h+LrLJxwodrOF6Ylw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Modernizer -->
+    <script src="http://localhost:5001/static/js/modernizer.js"></script> 
+
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head>
+
+<body>
+    
+    <div id="site-header">
+        <header id="header" class="header-block-top">
+            <div class="container">
+                <div class="row">
+                    <div class="main-menu">
+                        <!-- navbar -->
+                        <nav class="navbar navbar-default" id="mainNav">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <div class="logo">
+                                    <a class="navbar-brand js-scroll-trigger logo-header" href="http://localhost:5001/">
+                                        <img src="http://localhost:5001/images/Deliopt_logo2.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="active"><a href="http://localhost:5001/">Home</a></li>
+                                    <li class="active"><a href="http://localhost:5001/matching">Match</a></li>
+                                </ul>
+                            </div>
+                            <!-- end nav-collapse -->
+                        </nav>
+                        <!-- end navbar -->
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container-fluid -->
+        </header>
+        <!-- end header -->
+    </div>
+    <!-- end site-header -->
+
+    <div class="special-menu pad-top-100 parallax">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <h2 class="block-title color-white text-center"> Your Matches </h2>
+                        <h5 class="title-caption text-center">  </h5>
+                    </div>
+                    <div class="special-box">
+                        <div id="owl-demo">
+    
+                    
+                <div class="item item-type-zoom">
+                    <a href="#" class="item-hover">
+                        <div class="item-info">
+                            <div class="headline">
+                                Ippudo NY
+                                <div class="line"></div>
+                                <div class="dit-line">Categories: Ramen</div>
+                                <div class="dit-line">Categories: 10601</div>
+                                <div class="dit-line">Categories: 4.0</div>
+                                <div class="dit-line">Categories: $$</div>
+                                <div class="dit-line">Categories: 65 4th Ave</div>
+                                <div class="dit-line">Categories: (212) 388-0088</div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="item-img">
+                        <img src="https://s3-media1.fl.yelpcdn.com/bphoto/zF3EgqHCk7zBUwD2B3WTEA/o.jpg" alt="sp-menu" style="height: 275px; width: 325;">
+                    </div>
+                </div>
+                
+                <div class="item item-type-zoom">
+                    <a href="#" class="item-hover">
+                        <div class="item-info">
+                            <div class="headline">
+                                Raku
+                                <div class="line"></div>
+                                <div class="dit-line">Categories: Japanese, Noodles</div>
+                                <div class="dit-line">Categories: 1505</div>
+                                <div class="dit-line">Categories: 4.5</div>
+                                <div class="dit-line">Categories: $$</div>
+                                <div class="dit-line">Categories: 342 E 6th St</div>
+                                <div class="dit-line">Categories: (212) 228-1324</div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="item-img">
+                        <img src="https://s3-media4.fl.yelpcdn.com/bphoto/GEbZnH1jR4n7D5WOJ3urPg/o.jpg" alt="sp-menu" style="height: 275px; width: 325;">
+                    </div>
+                </div>
+                
+                <div class="item item-type-zoom">
+                    <a href="#" class="item-hover">
+                        <div class="item-info">
+                            <div class="headline">
+                                Han Dynasty
+                                <div class="line"></div>
+                                <div class="dit-line">Categories: Szechuan, Noodles, Beer Bar</div>
+                                <div class="dit-line">Categories: 1351</div>
+                                <div class="dit-line">Categories: 4.0</div>
+                                <div class="dit-line">Categories: $$</div>
+                                <div class="dit-line">Categories: 90 3rd Ave</div>
+                                <div class="dit-line">Categories: (212) 390-8685</div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="item-img">
+                        <img src="https://s3-media3.fl.yelpcdn.com/bphoto/G5jm9G3m_tquqwDm_qHoVQ/o.jpg" alt="sp-menu" style="height: 275px; width: 325;">
+                    </div>
+                </div>
+                
+                <div class="item item-type-zoom">
+                    <a href="#" class="item-hover">
+                        <div class="item-info">
+                            <div class="headline">
+                                New Golden Star
+                                <div class="line"></div>
+                                <div class="dit-line">Categories: Chinese</div>
+                                <div class="dit-line">Categories: 121</div>
+                                <div class="dit-line">Categories: 4.0</div>
+                                <div class="dit-line">Categories: $$</div>
+                                <div class="dit-line">Categories: 4247 Broadway</div>
+                                <div class="dit-line">Categories: (212) 928-5454</div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="item-img">
+                        <img src="https://s3-media2.fl.yelpcdn.com/bphoto/7B9J7syK7XACaEKbVUYJ8A/o.jpg" alt="sp-menu" style="height: 275px; width: 325;">
+                    </div>
+                </div>
+                
+                <div class="item item-type-zoom">
+                    <a href="#" class="item-hover">
+                        <div class="item-info">
+                            <div class="headline">
+                                Tsuru Ton Tan
+                                <div class="line"></div>
+                                <div class="dit-line">Categories: Japanese, Noodles, Sushi Bars</div>
+                                <div class="dit-line">Categories: 2267</div>
+                                <div class="dit-line">Categories: 4.0</div>
+                                <div class="dit-line">Categories: $$</div>
+                                <div class="dit-line">Categories: 21 E 16th St</div>
+                                <div class="dit-line">Categories: (212) 989-1000</div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="item-img">
+                        <img src="https://s3-media3.fl.yelpcdn.com/bphoto/S1XMhxctHZBhMu-qJegLdw/o.jpg" alt="sp-menu" style="height: 275px; width: 325;">
+                    </div>
+                </div>
+                
+                <div class="item item-type-zoom">
+                    <a href="#" class="item-hover">
+                        <div class="item-info">
+                            <div class="headline">
+                                Geisha Sushi
+                                <div class="line"></div>
+                                <div class="dit-line">Categories: Japanese, Sushi Bars, Wine Bars</div>
+                                <div class="dit-line">Categories: 459</div>
+                                <div class="dit-line">Categories: 4.0</div>
+                                <div class="dit-line">Categories: $$</div>
+                                <div class="dit-line">Categories: 3468 Broadway</div>
+                                <div class="dit-line">Categories: (212) 862-7800</div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="item-img">
+                        <img src="https://s3-media2.fl.yelpcdn.com/bphoto/yD3K-CtpQXL11Bpyt1fyZQ/o.jpg" alt="sp-menu" style="height: 275px; width: 325;">
+                    </div>
+                </div>
+                
+                <div class="item item-type-zoom">
+                    <a href="#" class="item-hover">
+                        <div class="item-info">
+                            <div class="headline">
+                                Momosan Ramen & Sake - New York
+                                <div class="line"></div>
+                                <div class="dit-line">Categories: Ramen, Asian Fusion</div>
+                                <div class="dit-line">Categories: 1806</div>
+                                <div class="dit-line">Categories: 4.0</div>
+                                <div class="dit-line">Categories: $$</div>
+                                <div class="dit-line">Categories: 342 Lexington Ave</div>
+                                <div class="dit-line">Categories: (646) 201-5529</div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="item-img">
+                        <img src="https://s3-media3.fl.yelpcdn.com/bphoto/y1zFJ01-X-A9vaCmH1if7g/o.jpg" alt="sp-menu" style="height: 275px; width: 325;">
+                    </div>
+                </div>
+                
+                <div class="item item-type-zoom">
+                    <a href="#" class="item-hover">
+                        <div class="item-info">
+                            <div class="headline">
+                                The Handpulled Noodle
+                                <div class="line"></div>
+                                <div class="dit-line">Categories: Chinese, Noodles, Comfort Food</div>
+                                <div class="dit-line">Categories: 1111</div>
+                                <div class="dit-line">Categories: 4.0</div>
+                                <div class="dit-line">Categories: $$</div>
+                                <div class="dit-line">Categories: 3600 Broadway</div>
+                                <div class="dit-line">Categories: (917) 262-0213</div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="item-img">
+                        <img src="https://s3-media2.fl.yelpcdn.com/bphoto/aANjGGFeowOqoVFG9sSCIA/o.jpg" alt="sp-menu" style="height: 275px; width: 325;">
+                    </div>
+                </div>
+                
+                <div class="item item-type-zoom">
+                    <a href="#" class="item-hover">
+                        <div class="item-info">
+                            <div class="headline">
+                                Mama Sushi
+                                <div class="line"></div>
+                                <div class="dit-line">Categories: Sushi Bars, Japanese, Cocktail Bars</div>
+                                <div class="dit-line">Categories: 847</div>
+                                <div class="dit-line">Categories: 3.0</div>
+                                <div class="dit-line">Categories: $$</div>
+                                <div class="dit-line">Categories: 237 Dyckman St</div>
+                                <div class="dit-line">Categories: (212) 544-0003</div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="item-img">
+                        <img src="https://s3-media1.fl.yelpcdn.com/bphoto/OMNTBkvokgd1wopFVwF77A/o.jpg" alt="sp-menu" style="height: 275px; width: 325;">
+                    </div>
+                </div>
+                
+                <div class="item item-type-zoom">
+                    <a href="#" class="item-hover">
+                        <div class="item-info">
+                            <div class="headline">
+                                ROKC
+                                <div class="line"></div>
+                                <div class="dit-line">Categories: Ramen, Seafood, Cocktail Bars</div>
+                                <div class="dit-line">Categories: 508</div>
+                                <div class="dit-line">Categories: 4.5</div>
+                                <div class="dit-line">Categories: $$</div>
+                                <div class="dit-line">Categories: 3452 Broadway</div>
+                                <div class="dit-line">Categories: (332) 217-8755</div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="item-img">
+                        <img src="https://s3-media2.fl.yelpcdn.com/bphoto/KG1VYmIBe2-QwLmL4DJzsg/o.jpg" alt="sp-menu" style="height: 275px; width: 325;">
+                    </div>
+                </div>
+                
+                <div class="item item-type-zoom">
+                    <a href="#" class="item-hover">
+                        <div class="item-info">
+                            <div class="headline">
+                                The Bao
+                                <div class="line"></div>
+                                <div class="dit-line">Categories: Shanghainese, Dim Sum, Seafood</div>
+                                <div class="dit-line">Categories: 1411</div>
+                                <div class="dit-line">Categories: 4.0</div>
+                                <div class="dit-line">Categories: $$</div>
+                                <div class="dit-line">Categories: 13 St Marks Pl</div>
+                                <div class="dit-line">Categories: (212) 388-9238</div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="item-img">
+                        <img src="https://s3-media3.fl.yelpcdn.com/bphoto/eOmq-bSKqrcYyq5O15qQ8g/o.jpg" alt="sp-menu" style="height: 275px; width: 325;">
+                    </div>
+                </div>
+                
+                <div class="item item-type-zoom">
+                    <a href="#" class="item-hover">
+                        <div class="item-info">
+                            <div class="headline">
+                                Chopped Parsley
+                                <div class="line"></div>
+                                <div class="dit-line">Categories: Japanese</div>
+                                <div class="dit-line">Categories: 135</div>
+                                <div class="dit-line">Categories: 4.5</div>
+                                <div class="dit-line">Categories: $$</div>
+                                <div class="dit-line">Categories: 500 W 146th St</div>
+                                <div class="dit-line">Categories: (917) 603-3181</div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="item-img">
+                        <img src="https://s3-media2.fl.yelpcdn.com/bphoto/ImQyleuACCh_t0qvKyx9bA/o.jpg" alt="sp-menu" style="height: 275px; width: 325;">
+                    </div>
+                </div>
+                
+        
+                    </div>
+                </div>
+            </div>           
+        </div>
+    </div>
+                
+
+    <div id="footer" class="footer-main">
+        <div class="footer-news pad-top-100 pad-bottom-70 parallax">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                            <h2 class="ft-title color-white text-center"> Newsletter </h2>
+                            <p> Subscribe our newsletter to receive latest news and exclusive offers</p>
+                        </div>
+                        <form>
+                            <input type="email" placeholder="Enter your e-mail address">
+                            <a href="#" class="new_orange-btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
+                        </form>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end footer-news -->
+        <div class="footer-box pad-top-70">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-in-main">
+                        <div class="footer-logo">
+                            <div class="text-center">
+                                <img src="http://localhost:5001/static/images/Deliopt_logo2.png" alt="" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-box-a">
+                                <h3>About Us</h3>
+                                <p>Deliopt is your tinder of food. </p>
+                                <p>It's match made in heaven. </p>
+                                <ul class="socials-box footer-socials pull-left">
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa  fa-facebook"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-twitter"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-google-plus"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-pinterest"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-linkedin"></i></div>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <!-- end footer-box-a -->
+                        </div>
+                        <!-- end col -->
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-box-c">
+                                <h3>Contact Us</h3>
+                                <p>
+                                    <i class="fa fa-map-signs" aria-hidden="true"></i>
+                                    <span>Columbia University in the City of New York</span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                                    <span>
+                                    +1 (857) 260-0802
+                                </span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <span><a href="#">support@deliopt.com</a></span>
+                                </p>
+                            </div>
+                            <!-- end footer-box-c -->
+                        </div>
+                        <!-- end col -->
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-box-d">
+                                <h3>Opening Hours</h3>
+
+                                <ul>
+                                    <li>
+                                        <p>Monday - Friday </p>
+                                        <span> 9:00 AM - 5:00 PM</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end footer-box-d -->
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <!-- end footer-in-main -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+            <div id="copyright" class="copyright-main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <h6 class="copy-title"> Copyright &copy; Deliopt is powered by <a href="#" target="_blank"></a> </h6>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- end container -->
+            </div>
+            <!-- end copyright-main -->
+        </div>
+        <!-- end footer-box -->
+    </div>
+    <!-- end footer-main -->
+
+    <a href="#" class="scrollup" style="display: none;">Scroll</a>
+
+    <section id="color-panel" class="close-color-panel">
+        <!-- Colors -->
+        <div class="segment">
+            <h4 class="gray2 normal no-padding">Color Scheme</h4>
+            <a title="orange" class="switcher new_orange-bg"></a>
+            <a title="new_green" class="switcher new_green-bg"></a>
+            <a title="new_red" class="switcher new_red-bg"></a>
+            <a title="beige" class="switcher beige-bg"></a>
+        </div>
+    </section>
+
+    <!-- ALL JS FILES -->
+    
+    <script src="http://localhost:5001/static/js/all.js"></script>
+    <script src="http://localhost:5001/static/js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="http://localhost:5001/static/js/custom.js"></script>
+
+</body>
+
+</html>

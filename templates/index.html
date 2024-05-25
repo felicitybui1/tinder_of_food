@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+
+    <!-- Site Metas -->
+    <title>Deliop</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon" />
+<link rel="apple-touch-icon" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min3.css') }}">
+<!-- Site CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+<!-- color -->
+<link id="changeable-colors" rel="stylesheet" href="{{ url_for('static', filename='css/colors/new_orange.css') }}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" integrity="sha512-Ba/8Fbgp7R5jKqbEZy5RMfduJ+0qI8Q15WxgZ7btuZdCvdd7YLMz0d0XyDCQb1lDRKj8/h+LrLJxwodrOF6Ylw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Modernizer -->
+<script src="{{ url_for('static', filename='js/modernizer.js') }}"></script> 
+
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head>
+
+<body>
+    <div id="loader">
+        <div id="status"></div>
+    </div>
+    <div id="site-header">
+        <header id="header" class="header-block-top">
+            <div class="container">
+                <div class="row">
+                    <div class="main-menu">
+                        <!-- navbar -->
+                        <nav class="navbar navbar-default" id="mainNav">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <div class="logo">
+                                    <a class="navbar-brand js-scroll-trigger logo-header" href="http://localhost:5001/">
+                                        <img src="{{ url_for('static', filename='images/Deliopt_logo2.png') }}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="active"><a href="#banner">Home</a></li>
+                                    <li><a href="#about">About us</a></li>
+                                    <li><a href="#our_team">Team</a></li>
+                                    <li><a href="#product_demo">Map</a></li>
+                                    <li><a href="#pricing">pricing</a></li>
+                                    <li><a href="#blog">Blog</a></li>
+                                    <li><a href="#signup">Match</a></li>
+                                    <li><a href="http://localhost:5001/slides" target="_blank">Slides</a></li>                                
+                                </ul>
+                            </div>
+                            <!-- end nav-collapse -->
+                        </nav>
+                        <!-- end navbar -->
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container-fluid -->
+        </header>
+        <!-- end header -->
+    </div>
+	<!-- end site-header -->
+	
+    <div id="banner" class="banner full-screen-mode parallax">
+        <div class="container pr">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="banner-static">
+                    <div class="banner-text">
+                        <div class="banner-cell">
+                            <h1>Deliopt  <span class="typer" id="some-id" data-delay="200" data-delim=":" data-words="Friends:Family:Officemates" data-colors="red"></span><span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1>
+                            <h2>The Tinder Of Food </h2>
+                            <p>Find the perfect match for your supplier needs. It's a match made in heaven! </p>
+                            <div class="book-btn">
+                                <a href="#product_demo" class="table-btn hvr-underline-from-center">Find Your Potential Match</a>
+                            </div>
+                            <a href="#about">
+                                <div class="mouse"></div>
+                            </a>
+                        </div>
+                        <!-- end banner-cell -->
+                    </div>
+                    <!-- end banner-text -->
+                </div>
+                <!-- end banner-static -->
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end banner -->
+
+    <div id="about" class="about-main pad-top-100 pad-bottom-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <h2 class="block-title"> About Us </h2>
+                        <h3 style="color:black">IT STARTED, QUITE SIMPLY, LIKE THIS...</h3>
+                        <h4 style="color:black"> Deliopt makes finding the right restaurants for your suppliers' need seamless and efficient. </h4>
+                        <h4 style="color:black"> Instant communication, placing and receiving orders with our intuitive app and web tools streamling operations for chefs, owners, and sales reps. </h4>
+
+                        <h4 style="color:black"> Deliopt fills not only the gap in the food industry but also the missing part in your business. </h4>
+                        
+                        <h4 style="color:black"> <b>Save time. Save money. Save food.</b></h4>
+
+                    </div>
+                    <div class="blog-btn-v">
+                        <a href="#our_team">Meet Our Team</a>
+                    </div>
+                </div>
+                <!-- end col -->
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                            <div class="about-images">
+                                <img class="test3" src="{{ url_for('static', filename='images/test3.png') }}" alt="About Main Image">
+                            </div>
+                        </div>
+                    </div>
+                  </body>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+
+    <div id="our_team" class="team-main pad-top-100 pad-bottom-100 parallax">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <h2 class="block-title text-center">
+						Our Team 	
+					</h2>
+                        <p class="title-caption text-center"></p>
+                    </div>
+                    <div class="team-box">
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-12 text-center"></div>
+                            <!-- empty column to center the first image -->
+                            <div class="col-md-4 col-sm-12 text-center">
+                                <div class="sf-team">
+                                    <div class="thumb">
+                                        <a><img src="{{ url_for('static', filename='images/Prof.jpeg') }}" alt=""></a>
+                                    </div>
+                                    <div class="text-col">
+                                        <h3>Michael Silas</h3>
+                                        <p> UNI: bestprofessor</p>
+                                        <p> App Advisor </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!--end row-->
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sf-team">
+                                    <div class="thumb">
+                                        <a><img src="{{ url_for('static', filename='images/Cris.jpeg') }}" alt=""></a>
+                                    </div>
+                                    <div class="text-col">
+                                        <h3>Cristian Leo</h3>
+                                        <p> UNI: cl4334 </p>
+                                        <p> Web developer </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sf-team">
+                                    <div class="thumb">
+                                        <a><img src="{{ url_for('static', filename='images/felicity.jpg') }}" alt=""></a>
+                                    </div>
+                                    <div class="text-col">
+                                        <h3>Felicity Bui</h3>
+                                        <p> UNI: phb2122 </p>
+                                        <p> Web developer </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sf-team">
+                                    <div class="thumb">
+                                        <a><img src="{{ url_for('static', filename='images/Adam.jpg') }}" alt=""></a>
+                                    </div>
+                                    <div class="text-col">
+                                        <h3>Adam Kang </h3>
+                                        <p> UNI: bk2845 </p>
+                                        <p> Web developer </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!--end row-->
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sf-team">
+                                    <div class="thumb">
+                                        <a><img src="{{ url_for('static', filename='images/Eric.jpeg') }}" alt=""></a>
+                                    </div>
+                                    <div class="text-col">
+                                        <h3>Eric Xue</h3>
+                                        <p> UNI: px2151 </p>
+                                        <p> Web developer </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sf-team">
+                                    <div class="thumb">
+                                        <a><img src="{{ url_for('static', filename='images/Samar.jpg') }}" alt=""></a>
+                                    </div>
+                                    <div class="text-col">
+                                        <h3>Samar Oberoi</h3>
+                                        <p> UNI: so2680 </p>
+                                        <p> Web developer </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sf-team">
+                                    <div class="thumb">
+                                        <a><img src="{{ url_for('static', filename='images/Yazan.jpeg') }}" alt=""></a>
+                                    </div>
+                                    <div class="text-col">
+                                        <h3>Yazan Zeeshan Ali</h3>
+                                        <p> UNI: ya2481 </p>
+                                        <p> Web developer </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                    </div>
+                    <!-- end team-box -->
+
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end team-main -->
+</div>
+
+<div id="product_demo" class="reservations-main pad-top-100 pad-bottom-100">
+    <div class="container">
+        <div class="row">
+            <div class="form-reservations-box">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <h2 class="block-title text-center"> Search Restaurants </h2>
+                    </div>
+                    
+
+                    
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="reserve-book-btn text-center">
+                                <button onclick="location.href='/map'" class="hvr-underline-from-center" type="button">SEARCH</button>
+                            </div>
+                        </div>
+                        <!-- end col -->
+                    </form>
+                    <!-- end form -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end reservations-box -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end reservations-main -->
+     
+    <div id="pricing" class="pricing-main pad-top-100 pad-bottom-100">
+        <div class="container">
+            <div class="row">
+                <div class="row justify-content-center justify-content-between">
+                    <h2 class="block-title text-center">
+						Pricing 	
+					</h2>
+                    <p>Delipopt offers different subsciption plans, uniquely customized for your business. With full access to our solutions and a dedicated team to support your digital transformation, Premium gives you the benefits of automated operations, more efficient sales, and stronger customer relationships.</p>
+                </div>
+                <div class="panel-pricing-in">
+                    <!-- item -->
+                    <div class="col-md-4 col-sm-4 text-center">
+                        <div class="panel panel-pricing">
+                            <div class="panel-heading">
+                                <div class="pric-icon">
+                                    <img src="{{ url_for('static', filename='images/store.png') }}" alt="" />
+                                </div>
+                                <h3>Basic</h3>
+                            </div>
+                            <div class="panel-body text-center">
+                                <p><b>$50/ <span>month</span></b></p>
+                                <p><b>$500/ <span>year</span></b></p>
+                            </div>
+                            <ul class="list-group text-center">
+                                <li class="list-group-item"><i class="fa fa-check"></i> One User</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Standardized Orders</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Order edits and Confirmation</li>
+                                <li class="list-group-item"><i class="fa fa-times"></i> Customized order settings</li>
+                                <li class="list-group-item"><i class="fa fa-times"></i> Automated Order Entry</li>
+                                <li class="list-group-item"><i class="fa fa-times"></i> In-app Business Promotion</li>
+                                <li class="list-group-item"><i class="fa fa-times"></i> Live support for your customers</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> 24x7 Support</li>
+                            </ul>
+                            <div class="panel-footer">
+                                <a class="btn btn-lg btn-block hvr-underline-from-center" href="#signup">Try Deliopt First Month Free</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /item -->
+
+                    <!-- item -->
+                    <div class="col-md-4 col-sm-4 text-center">
+                        <div class="panel panel-pricing">
+                            <div class="panel-heading">
+                                <div class="pric-icon">
+                                    <img src="{{ url_for('static', filename='images/food.png') }}" alt="" />
+                                </div>
+                                <h3>Pro</h3>
+                            </div>
+                            <div class="panel-body text-center">
+                                <p><b>$80/ <span>month</span></b></p>
+                                <p><b>$800/ <span>year</span></b></p>
+                            </div>
+                            <ul class="list-group text-center">
+                                <li class="list-group-item"><i class="fa fa-check"></i> Two Users</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Standardized Orders</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Order edits and Confirmation</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Customized order settings</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Automated Order Entry</li>
+                                <li class="list-group-item"><i class="fa fa-times"></i> In-app Business Promotion</li>
+                                <li class="list-group-item"><i class="fa fa-times"></i> Live support for your customers</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> 24x7 Support</li>
+                            </ul>
+                            <div class="panel-footer">
+                                <a class="btn btn-lg btn-block hvr-underline-from-center" href="#signup">Try Deliopt First Month Free</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /item -->
+
+                    <!-- item -->
+                    <div class="col-md-4 col-sm-4 text-center">
+                        <div class="panel panel-pricing">
+                            <div class="panel-heading">
+                                <div class="pric-icon">
+                                    <img src="{{ url_for('static', filename='images/coffee.png') }}" alt="" />
+                                </div>
+                                <h3>Premium</h3>
+                            </div>
+                            <div class="panel-body text-center">
+                                <p><b>$100/ <span>month</span></b></p>
+                                <p><b>$1000/ <span>year</span></b></p>
+                            </div>
+                            <ul class="list-group text-center">
+                                <li class="list-group-item"><i class="fa fa-check"></i> Two Users</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Standardized Orders</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Order edits and Confirmation</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Customized order settings</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Automated Order Entry</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> In-app Business Promotion</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Live support for your customers</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> 24x7 Support</li>
+                            </ul>
+                            <div class="panel-footer">
+                                <a class="btn btn-lg btn-block hvr-underline-from-center" href="#signup">Try Deliopt First Month Free</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /item -->
+                </div>
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end pricing-main -->
+
+    <div id="blog" class="blog-main pad-top-100 pad-bottom-100 parallax">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h2 class="block-title text-center">
+					Deliopt's Blogs
+				</h2>
+                    <div class="blog-box clearfix">
+                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="blog-block">
+                                    <div class="blog-img-box">
+                                        <img src= "{{ url_for('static', filename='images/peter_luger.jpg') }}" alt="" />
+                                        <div class="overlay">
+                                            <a><i class="fa fa-link" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="blog-dit">
+                                        <p><span>25 NOVEMBER, 2022</span></p>
+                                        <h2>Peter Luger successfully fought copycats with Deliopt !</h2>
+                                        <h5>BY John Doggett</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="blog-block">
+                                    <div class="blog-img-box">
+                                        <img src="{{ url_for('static', filename='images/ingredients.jpg') }}" alt="" />
+                                        <div class="overlay">
+                                            <a><i class="fa fa-link" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="blog-dit">
+                                        <p><span>4 April, 2023</span></p>
+                                        <h2>SUPPLYING TIPS FROM THE PROS</h2>
+                                        <h5>BY Monica Reyes</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                    </div>
+                    <!-- end blog-box -->
+
+                    <div class="blog-btn-v">
+                        <a>View the Blog</a>
+                    </div>
+
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end blog-main -->
+
+
+     <div id="signup" class="reservations-main pad-top-100 pad-bottom-100">
+        <div class="container">
+            <div class="row">
+                <div class="form-reservations-box">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                            <h2 class="block-title text-center"> Sign Up Form </h2>
+                        </div>
+                        <p style="color:black"> Sign up today, and get your business back on track within 24 hours!</p>
+
+                        
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="reserve-book-btn text-center">
+                                    <button onclick="location.href='/matching'" class="hvr-underline-from-center" type="button">GET MATCHED</button>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        </form>
+                        <!-- end form -->
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end reservations-box -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end reservations-main -->
+
+    <div id="footer" class="footer-main">
+        <div class="footer-news pad-top-100 pad-bottom-70 parallax">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                            <h2 class="ft-title color-white text-center"> Newsletter </h2>
+                            <p> Subscribe our newsletter to receive latest news and exclusive offers</p>
+                        </div>
+                        <form>
+                            <input type="email" placeholder="Enter your e-mail address">
+                            <a href="#" class="new_orange-btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
+                        </form>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end footer-news -->
+        <div class="footer-box pad-top-70">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-in-main">
+                        <div class="footer-logo">
+                            <div class="text-center">
+                                <img src="{{ url_for('static', filename='images/Deliopt_logo2.png') }}" alt="" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-box-a">
+                                <h3>About Us</h3>
+                                <p>Deliopt is your tinder of food. </p>
+                                <p>It's match made in heaven. </p>
+                                <ul class="socials-box footer-socials pull-left">
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa  fa-facebook"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-twitter"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-google-plus"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-pinterest"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-linkedin"></i></div>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <!-- end footer-box-a -->
+                        </div>
+                        <!-- end col -->
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-box-c">
+                                <h3>Contact Us</h3>
+                                <p>
+                                    <i class="fa fa-map-signs" aria-hidden="true"></i>
+                                    <span>Columbia University in the City of New York</span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                                    <span>
+									+1 (857) 260-0802
+								</span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <span><a href="#">support@deliopt.com</a></span>
+                                </p>
+                            </div>
+                            <!-- end footer-box-c -->
+                        </div>
+                        <!-- end col -->
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-box-d">
+                                <h3>Opening Hours</h3>
+
+                                <ul>
+                                    <li>
+                                        <p>Monday - Friday </p>
+                                        <span> 9:00 AM - 5:00 PM</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end footer-box-d -->
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <!-- end footer-in-main -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+            <div id="copyright" class="copyright-main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <h6 class="copy-title"> Copyright &copy; Deliopt is powered by <a href="#" target="_blank"></a> </h6>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- end container -->
+            </div>
+            <!-- end copyright-main -->
+        </div>
+        <!-- end footer-box -->
+    </div>
+    <!-- end footer-main -->
+
+    <a href="#" class="scrollup" style="display: none;">Scroll</a>
+
+    <section id="color-panel" class="close-color-panel">
+        <!-- Colors -->
+        <div class="segment">
+            <h4 class="gray2 normal no-padding">Color Scheme</h4>
+            <a title="orange" class="switcher new_orange-bg"></a>
+            <a title="new_green" class="switcher new_green-bg"></a>
+            <a title="new_red" class="switcher new_red-bg"></a>
+            <a title="beige" class="switcher beige-bg"></a>
+        </div>
+    </section>
+
+    <!-- ALL JS FILES -->
+    <script src="{{ url_for('static', filename='js/all.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+
+</body>
+
+</html>
